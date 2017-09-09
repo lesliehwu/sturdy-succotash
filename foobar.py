@@ -7,23 +7,22 @@ def isPrime(a):
                 return False
         return True
 
-def isSquare(b):
-    for z in range (2,b):
-        while z < b:
-            if (z * z != b):
-                z += 1
-            else:
-                return True
-        return False
-
 def foo_bar(start,finish):
+
+    next_square = 1
+
+    for i in range (1,start):
+        if i == next_square * next_square:
+            next_square += 1
+
     while start < finish:
         if isPrime(start): 
-            print "FooPRIME" + str(start)
-        elif isSquare(start):
-            print "BarSQUARE" + str(start)
+            print "Foo" + str(start)
+        elif start == next_square * next_square:
+            print "Bar" + str(start)
+            next_square += 1
         else:
-            print "FooBarREGULAR" + str(start)
+            print "FooBar" + str(start)
         start += 1
 
-foo_bar(100,100000)
+foo_bar(10,50)
