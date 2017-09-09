@@ -1,17 +1,22 @@
-def isPrime(a):
-    for y in range (2,a):
-        while y < a:
-            if (a % y != 0):
-                y += 1
-            else:
-                return False
-        return True
-
 def foo_bar(start,finish):
 
     next_square = 1
 
+    prime_list = []
+
+    def isPrime(a):
+        if a == 1:
+            return False
+        for y in prime_list:
+            if (y * y > a):
+                break
+            if (a % y == 0):
+                return False
+        prime_list.append(a)
+        return True
+
     for i in range (1,start):
+        isPrime(i)
         if i == next_square * next_square:
             next_square += 1
 
@@ -25,4 +30,4 @@ def foo_bar(start,finish):
             print "FooBar" + str(start)
         start += 1
 
-foo_bar(10,50)
+foo_bar(10,100000)
